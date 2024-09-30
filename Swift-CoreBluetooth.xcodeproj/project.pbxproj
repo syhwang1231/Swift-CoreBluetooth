@@ -10,9 +10,7 @@
 		083AB15E2CAACB98002A55BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB15D2CAACB98002A55BC /* AppDelegate.swift */; };
 		083AB1602CAACB98002A55BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB15F2CAACB98002A55BC /* SceneDelegate.swift */; };
 		083AB1622CAACB98002A55BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB1612CAACB98002A55BC /* ViewController.swift */; };
-		083AB1652CAACB98002A55BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 083AB1632CAACB98002A55BC /* Main.storyboard */; };
 		083AB1672CAACB99002A55BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 083AB1662CAACB99002A55BC /* Assets.xcassets */; };
-		083AB16A2CAACB99002A55BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 083AB1682CAACB99002A55BC /* LaunchScreen.storyboard */; };
 		083AB1752CAACB9A002A55BC /* Swift_CoreBluetoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB1742CAACB9A002A55BC /* Swift_CoreBluetoothTests.swift */; };
 		083AB17F2CAACB9A002A55BC /* Swift_CoreBluetoothUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB17E2CAACB9A002A55BC /* Swift_CoreBluetoothUITests.swift */; };
 		083AB1812CAACB9A002A55BC /* Swift_CoreBluetoothUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB1802CAACB9A002A55BC /* Swift_CoreBluetoothUITestsLaunchTests.swift */; };
@@ -40,9 +38,7 @@
 		083AB15D2CAACB98002A55BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		083AB15F2CAACB98002A55BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		083AB1612CAACB98002A55BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		083AB1642CAACB98002A55BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		083AB1662CAACB99002A55BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		083AB1692CAACB99002A55BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		083AB16B2CAACB99002A55BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		083AB1702CAACB9A002A55BC /* Swift-CoreBluetoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift-CoreBluetoothTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		083AB1742CAACB9A002A55BC /* Swift_CoreBluetoothTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_CoreBluetoothTests.swift; sourceTree = "<group>"; };
@@ -102,9 +98,7 @@
 				083AB15D2CAACB98002A55BC /* AppDelegate.swift */,
 				083AB15F2CAACB98002A55BC /* SceneDelegate.swift */,
 				083AB1612CAACB98002A55BC /* ViewController.swift */,
-				083AB1632CAACB98002A55BC /* Main.storyboard */,
 				083AB1662CAACB99002A55BC /* Assets.xcassets */,
-				083AB1682CAACB99002A55BC /* LaunchScreen.storyboard */,
 				083AB16B2CAACB99002A55BC /* Info.plist */,
 			);
 			path = "Swift-CoreBluetooth";
@@ -231,9 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				083AB16A2CAACB99002A55BC /* LaunchScreen.storyboard in Resources */,
 				083AB1672CAACB99002A55BC /* Assets.xcassets in Resources */,
-				083AB1652CAACB98002A55BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,25 +287,6 @@
 			targetProxy = 083AB17B2CAACB9A002A55BC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		083AB1632CAACB98002A55BC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				083AB1642CAACB98002A55BC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		083AB1682CAACB99002A55BC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				083AB1692CAACB99002A55BC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		083AB1822CAACB9A002A55BC /* Debug */ = {
@@ -442,11 +415,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7AS2J3XH7B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift-CoreBluetooth/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -469,11 +441,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7AS2J3XH7B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Swift-CoreBluetooth/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
