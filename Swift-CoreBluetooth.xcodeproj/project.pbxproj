@@ -14,6 +14,8 @@
 		083AB1752CAACB9A002A55BC /* Swift_CoreBluetoothTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB1742CAACB9A002A55BC /* Swift_CoreBluetoothTests.swift */; };
 		083AB17F2CAACB9A002A55BC /* Swift_CoreBluetoothUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB17E2CAACB9A002A55BC /* Swift_CoreBluetoothUITests.swift */; };
 		083AB1812CAACB9A002A55BC /* Swift_CoreBluetoothUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB1802CAACB9A002A55BC /* Swift_CoreBluetoothUITestsLaunchTests.swift */; };
+		083AB18F2CAB2950002A55BC /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 083AB18E2CAB2950002A55BC /* FlexLayout */; };
+		083AB1922CAB2984002A55BC /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 083AB1912CAB2984002A55BC /* PinLayout */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				083AB1922CAB2984002A55BC /* PinLayout in Frameworks */,
+				083AB18F2CAB2950002A55BC /* FlexLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +141,10 @@
 			dependencies = (
 			);
 			name = "Swift-CoreBluetooth";
+			packageProductDependencies = (
+				083AB18E2CAB2950002A55BC /* FlexLayout */,
+				083AB1912CAB2984002A55BC /* PinLayout */,
+			);
 			productName = "Swift-CoreBluetooth";
 			productReference = 083AB15A2CAACB98002A55BC /* Swift-CoreBluetooth.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +217,10 @@
 				Base,
 			);
 			mainGroup = 083AB1512CAACB98002A55BC;
+			packageReferences = (
+				083AB18D2CAB2950002A55BC /* XCRemoteSwiftPackageReference "FlexLayout" */,
+				083AB1902CAB2984002A55BC /* XCRemoteSwiftPackageReference "PinLayout" */,
+			);
 			productRefGroup = 083AB15B2CAACB98002A55BC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -572,6 +584,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		083AB18D2CAB2950002A55BC /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/FlexLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.10;
+			};
+		};
+		083AB1902CAB2984002A55BC /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		083AB18E2CAB2950002A55BC /* FlexLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 083AB18D2CAB2950002A55BC /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayout;
+		};
+		083AB1912CAB2984002A55BC /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 083AB1902CAB2984002A55BC /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 083AB1522CAACB98002A55BC /* Project object */;
 }
