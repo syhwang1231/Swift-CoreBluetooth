@@ -16,6 +16,7 @@
 		083AB1812CAACB9A002A55BC /* Swift_CoreBluetoothUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB1802CAACB9A002A55BC /* Swift_CoreBluetoothUITestsLaunchTests.swift */; };
 		083AB18F2CAB2950002A55BC /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 083AB18E2CAB2950002A55BC /* FlexLayout */; };
 		083AB1922CAB2984002A55BC /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 083AB1912CAB2984002A55BC /* PinLayout */; };
+		08E7E82E2D381D3600D505A8 /* BluetoothSerialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E7E82D2D381D3600D505A8 /* BluetoothSerialManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		083AB17A2CAACB9A002A55BC /* Swift-CoreBluetoothUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift-CoreBluetoothUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		083AB17E2CAACB9A002A55BC /* Swift_CoreBluetoothUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_CoreBluetoothUITests.swift; sourceTree = "<group>"; };
 		083AB1802CAACB9A002A55BC /* Swift_CoreBluetoothUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_CoreBluetoothUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		08E7E82D2D381D3600D505A8 /* BluetoothSerialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothSerialManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				083AB1612CAACB98002A55BC /* ViewController.swift */,
 				083AB1662CAACB99002A55BC /* Assets.xcassets */,
 				083AB16B2CAACB99002A55BC /* Info.plist */,
+				08E7E82D2D381D3600D505A8 /* BluetoothSerialManager.swift */,
 			);
 			path = "Swift-CoreBluetooth";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08E7E82E2D381D3600D505A8 /* BluetoothSerialManager.swift in Sources */,
 				083AB1622CAACB98002A55BC /* ViewController.swift in Sources */,
 				083AB15E2CAACB98002A55BC /* AppDelegate.swift in Sources */,
 				083AB1602CAACB98002A55BC /* SceneDelegate.swift in Sources */,
@@ -433,6 +437,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +464,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
