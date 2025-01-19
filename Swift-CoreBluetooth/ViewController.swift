@@ -109,8 +109,6 @@ class ViewController: UIViewController {
         addTarget()
         
         BluetoothSerial.shared.delegate = self
-        
-//        centralManager = CBCentralManager(delegate: self, queue: nil)
     }
 
     private func addViews() {
@@ -178,12 +176,8 @@ class ViewController: UIViewController {
 
     @objc func startButtonDidTap(_ sender: UIButton) {
         print("검색 시작")
-//        if(!centralManager.isScanning){
-//            centralManager?.scanForPeripherals(withServices: nil, options: nil)
-//        }
         
         BluetoothSerial.shared.setBluetoothMode(to: .scanningMode)
-//        BluetoothSerial.shared.startScan()
     }
     
     @objc func stopButtonDidTap(_ sender: UIButton) {
@@ -216,11 +210,6 @@ extension ViewController: BluetoothSerialDelegate {
 //        if !check {
 //            peripheralList.append(peripheral)
             print("adding...")
-        if peripheral.name == "돌멩이의 iPhone" {
-            print("=== Found iphone ===")
-            print(peripheral.services?[0].uuid)
-            print("====================")
-        }
             addPeripheral(serial: peripheral.name ?? peripheral.identifier.uuidString)
 //        }
         print("=======================================")
