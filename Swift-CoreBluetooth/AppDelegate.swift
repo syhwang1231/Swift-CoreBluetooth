@@ -44,10 +44,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    /// 알림을 탭했을 때
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let application = UIApplication.shared
+        
+        // 앱이 켜져있는 상태
+        if application.applicationState == .active {
+            print("푸시알림 탭(앱 켜져있음)")
+            if response.notification.request.identifier == "POCHAK_NEARBY" {
+                guard let rootViewController = (application.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else { return }
+                if let navVC = rootViewController as? UINavigationController {  // TODO: 포착 루트뷰컨에 맞게 수정하기
+                    navVC.pushViewController(SecondViewController(), animated: true)
+                }
+            }
+        }
+        
+        // 앱이 꺼져있는 상태
+        if application.applicationState == .inactive {
+            print("푸시알림 탭(앱 꺼져있음)")
+            if response.notification.request.identifier == "POCHAK_NEARBY" {
+                guard let rootViewController = (application.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else { return }
+                if let navVC = rootViewController as? UINavigationController {  // TODO: 포착 루트뷰컨에 맞게 수정하기
+                    navVC.pushViewController(SecondViewController(), animated: true)
+                }
+            }
+            
+        }
+    }
+    
     // Foreground(앱 켜진 상태)에서도 알림 오는 설정
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.list, .banner])
+        completionHandler([.badge, .sound, .banner])
     }
 }
