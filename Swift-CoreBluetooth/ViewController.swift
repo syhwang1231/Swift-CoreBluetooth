@@ -212,6 +212,9 @@ extension ViewController: BluetoothSerialDelegate {
             print("adding...")
             addPeripheral(serial: peripheral.name ?? peripheral.identifier.uuidString)
 //        }
+        LocalPushNotificationManager.shared.pushNotification(title: "👀 내 주변에 포차커가 있어요!",
+                                                             body: "지금 눌러서 확인하기",
+                                                             identifier: "POCHAK_NEARBY")
         print("=======================================")
     }
     
