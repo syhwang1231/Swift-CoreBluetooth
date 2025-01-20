@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0822A2032D3E6AA400A410FC /* LocalPushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0822A2022D3E6AA400A410FC /* LocalPushNotificationManager.swift */; };
 		083AB15E2CAACB98002A55BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB15D2CAACB98002A55BC /* AppDelegate.swift */; };
 		083AB1602CAACB98002A55BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB15F2CAACB98002A55BC /* SceneDelegate.swift */; };
 		083AB1622CAACB98002A55BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB1612CAACB98002A55BC /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0822A2022D3E6AA400A410FC /* LocalPushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushNotificationManager.swift; sourceTree = "<group>"; };
 		083AB15A2CAACB98002A55BC /* Swift-CoreBluetooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-CoreBluetooth.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		083AB15D2CAACB98002A55BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		083AB15F2CAACB98002A55BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				083AB1662CAACB99002A55BC /* Assets.xcassets */,
 				083AB16B2CAACB99002A55BC /* Info.plist */,
 				08E7E82D2D381D3600D505A8 /* BluetoothSerialManager.swift */,
+				0822A2022D3E6AA400A410FC /* LocalPushNotificationManager.swift */,
 			);
 			path = "Swift-CoreBluetooth";
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				08E7E82E2D381D3600D505A8 /* BluetoothSerialManager.swift in Sources */,
 				083AB1622CAACB98002A55BC /* ViewController.swift in Sources */,
 				083AB15E2CAACB98002A55BC /* AppDelegate.swift in Sources */,
+				0822A2032D3E6AA400A410FC /* LocalPushNotificationManager.swift in Sources */,
 				083AB1602CAACB98002A55BC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
