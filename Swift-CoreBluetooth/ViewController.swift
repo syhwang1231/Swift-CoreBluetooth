@@ -216,6 +216,7 @@ extension ViewController: BluetoothSerialDelegate {
                                                              body: "지금 눌러서 확인하기",
                                                              identifier: "POCHAK_NEARBY")
         print("=======================================")
+        BluetoothSerial.shared.centralManager.stopScan()
     }
     
     func serialDidReceiveMessage(message: String) {
