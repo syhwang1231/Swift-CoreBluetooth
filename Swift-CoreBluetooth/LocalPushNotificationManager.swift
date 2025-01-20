@@ -25,6 +25,7 @@ class LocalPushNotificationManager {
         let notificationContent = UNMutableNotificationContent()  // 내용
         notificationContent.title = title
         notificationContent.body = body
+        notificationContent.sound = .default
 
         // 조건 주기 -> 필요 없음
 //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
