@@ -83,7 +83,7 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
         self.currentMode = .scanningMode
     }
     
-    func setBluetoothMode(to mode: BluetoothMode) {
+    func setBluetoothModeAndStart(to mode: BluetoothMode) {
         switch mode {
         case .advertisingMode:
             centralManager.stopScan()

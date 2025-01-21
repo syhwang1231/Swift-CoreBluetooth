@@ -177,12 +177,12 @@ class ViewController: UIViewController {
     @objc func startButtonDidTap(_ sender: UIButton) {
         print("검색 시작")
         
-        BluetoothSerial.shared.setBluetoothMode(to: .scanningMode)
+        BluetoothSerial.shared.setBluetoothModeAndStart(to: .scanningMode)
     }
     
     @objc func stopButtonDidTap(_ sender: UIButton) {
         print("검색 종료, advertising mode 시작")
-        BluetoothSerial.shared.setBluetoothMode(to: .advertisingMode)
+        BluetoothSerial.shared.setBluetoothModeAndStart(to: .advertisingMode)
 //        BluetoothSerial.shared.addServicesWithData("Pochak user")
 //        BluetoothSerial.shared.stopScan()
 //        centralManager.stopScan()
@@ -217,12 +217,5 @@ extension ViewController: BluetoothSerialDelegate {
                                                              identifier: "POCHAK_NEARBY")
         print("=======================================")
         BluetoothSerial.shared.centralManager.stopScan()
-    }
-    
-    func serialDidReceiveMessage(message: String) {
-        print("received message!")
-        let alert = UIAlertController(title: "블루투스 통신", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(alert, animated: true)
     }
 }
