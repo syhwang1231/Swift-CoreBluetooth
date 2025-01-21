@@ -62,25 +62,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 앱이 Background 상태에 들어갈 때 BGTaskScheduler에 Task를 submit
         (UIApplication.shared.delegate as? AppDelegate)?.scheduleBackgroundTask()
     }
-
-//    private func scheduleBackgroundTask() {
-//        let task = BGAppRefreshTaskRequest(identifier: "NearbyPochak")
-//        /// (Processing Task 였다면)
-//        /*
-//         task.requiresExternalPower = false // 배터리를 사용할 것인지 여부
-//        task.requiresNetworkConnectivity = false // 네트워크를 사용할 것인지 여부
-//         */
-//        
-//        // 백그라운드 작업을 실행할 때까지의 최소 대기 시간
-//        task.earliestBeginDate = Date(timeIntervalSinceNow: 2 * 60)  // 최소 120초
-//        
-//        do {
-//            print("[SceneDelegate] Background Task submitted!")
-//            // Background Task 등록!!
-//            try BGTaskScheduler.shared.submit(task)
-//        } catch {
-//            print("[!] Error - Could not schedule app refresh")
-//        }
-//    }
 }
 

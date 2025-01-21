@@ -183,9 +183,6 @@ class ViewController: UIViewController {
     @objc func stopButtonDidTap(_ sender: UIButton) {
         print("검색 종료, advertising mode 시작")
         BluetoothSerial.shared.setBluetoothModeAndStart(to: .advertisingMode)
-//        BluetoothSerial.shared.addServicesWithData("Pochak user")
-//        BluetoothSerial.shared.stopScan()
-//        centralManager.stopScan()
     }
     
     private func addPeripheral(serial: String) {
@@ -206,12 +203,7 @@ class ViewController: UIViewController {
 extension ViewController: BluetoothSerialDelegate {
     func serialDidDiscoverPeripheral(peripheral: CBPeripheral, RSSI: NSNumber?) {
         print("=== serial did discover peripheral ===")
-//        let check: Bool = false
-//        if !check {
-//            peripheralList.append(peripheral)
-            print("adding...")
             addPeripheral(serial: peripheral.name ?? peripheral.identifier.uuidString)
-//        }
         LocalPushNotificationManager.shared.pushNotification(title: "👀 내 주변에 포차커가 있어요!",
                                                              body: "지금 눌러서 포착하기",
                                                              identifier: "POCHAK_NEARBY")

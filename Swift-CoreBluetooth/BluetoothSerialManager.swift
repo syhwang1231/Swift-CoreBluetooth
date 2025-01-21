@@ -19,13 +19,11 @@ enum BluetoothMode: String {
 protocol BluetoothSerialDelegate: AnyObject {
     func serialDidDiscoverPeripheral(peripheral: CBPeripheral, RSSI: NSNumber?)
     func serialDidConnectPeripheral(peripheral: CBPeripheral)
-    func serialDidReceiveMessage(message: String)
 }
 
 extension BluetoothSerialDelegate {
     func serialDidDiscoverPeripheral(peripheral: CBPeripheral, RSSI: NSNumber?) {}
     func serialDidConnectPeripheral(peripheral: CBPeripheral) {}
-    func serialDidReceiveMessage(message: String) {}
 }
 
 /// 블루투스 통신을 담당할 시리얼을 클래스로 선언합니다. CoreBluetooth를 사용하기 위한 프로토콜을 추가해야합니다.
@@ -45,32 +43,12 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
     
     var currentMode: BluetoothMode!
     
-    /// 현재 연결 시도 중인 주변기기
-    var pendingPeripheral: CBPeripheral?
-    
-    var connectedPeripheral: CBPeripheral?
-    
-    /// 데이터를 주변기기에 보내기 위한 characteristic을 저장
-    weak var writeCharacteristic: CBCharacteristic?
-    
-    /// 데이터를 주변기기에 보내는 type을 설정합니다. withResponse는 데이터를 보내면 이에 대한 답장이 오는 경우입니다. withoutResponse는 반대로 데이터를 보내도 답장이 오지 않는 경우입니다.
-    private var writeType: CBCharacteristicWriteType = .withoutResponse
-    
     /// serviceUUID는 Peripheral이 가지고 있는 서비스의 UUID를 뜻 (커스텀함)
     var serviceUUID = CBUUID(string: tempUUID)
 //    var serviceUUID = CBUUID(string: "FFE0")
     
     /// characteristicUUID는 serviceUUID에 포함되어있습니다. 이를 이용하여 데이터를 송수신합니다. FFE0 서비스가 갖고있는 FFE1로 설정하였습니다. 하나의 service는 여러개의 characteristicUUID를 가질 수 있습니다.
     var characteristicUUID = CBUUID(string : "FFE1")
-    
-    /// 블루투스 기기와 성공적으로 연결되었고, 통신이 가능한 상태라면 true를 반환합니다.
-    var bluetoothIsReady: Bool  {
-        get {
-            return centralManager.state == .poweredOn &&
-            //connectedPeripheral != nil &&
-            writeCharacteristic != nil
-        }
-    }
     
     // MARK: - Functions
     
