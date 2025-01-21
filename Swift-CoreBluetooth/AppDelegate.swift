@@ -7,6 +7,7 @@
 
 import UIKit
 import UserNotifications
+import BackgroundTasks
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             options: authOptions,
             completionHandler: { _, _ in }
         )
+        
+        registerBackgroundTasks()
+        
         return true
     }
 
@@ -40,7 +44,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    /// 앱의 launch sequence가 끝나기 전에 Background Task를 Scheduler에 "등록"해야 합니다.
+    /// Info.plist에 등록한 키 값으로 등록해야 합니다.
+    private func registerBackgroundTasks() {
+        print("[AppDelegate] Background Task 등록!")
+        // RefreshTask
+        // 1. Refresh Task 등록
+        let taskIdentifier = ["NearbyPochak"]
+        
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: taskIdentifier[0], using: nil, launchHandler: { task in
+            // 2. 실제로 수행할 Background 동작 구현
+            self.handleBackgroundTask(task: task as! BGAppRefreshTask)
+            print("do backgroundtask")
+        })
+    }
+    
+    private func handleBackgroundTask(task: BGAppRefreshTask) {
+        let operationQueue = OperationQueue()
+        
+        scheduleBackgroundTask()  // 다음 백그라운드 작업 예약
+        
+        print("[AppDelegate] Background task 수행 중")
+        
+        let operation = BluetoothRefreshOperation()
+        
+        // Background Task가 갑자기 종료되거나 TimeOut될 때를 대비
+        task.expirationHandler = {
+//            task.setTaskCompleted(success: false)  // task가 완료되었음을 알려줌 (백그라운드 자원 이용 stop)
+            operation.cancel()
+        }
+        
+        operation.completionBlock = {
+            // 백그라운드 작업 스케줄러에게 작업 완료됨 알리기
+            task.setTaskCompleted(success: !operation.isCancelled)
+            BluetoothSerial.shared.centralManager.stopScan()
+            print("[AppDelegate] Background task completed with Success: \(!operation.isCancelled)")
+        }
+        
+        // TODO: background 태스크 수행 - central mode on 하기
+        
+        // 실행 대기열에 추가 -> 비동기로 실행
+        operationQueue.addOperation(operation)
+        
+    }
+    
+    func scheduleBackgroundTask() {
+        let task = BGAppRefreshTaskRequest(identifier: "NearbyPochak")
+        task.earliestBeginDate = Date(timeIntervalSinceNow: 2 * 60)  // 최소 120초 TODO: 변경
+        
+        do {
+            print("[AppDelegate] Background Task submitted!")
+            try BGTaskScheduler.shared.submit(task)  // Background Task 등록!!
+        } catch {
+            print("[!] Error - Could not schedule app refresh")
+        }
+    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BackgroundTasks
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -31,29 +32,55 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        print("sceneDidDisconnect - 아예 그 리스트에서도 사라졌을 때")
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        print("sceneDidBecomeActive")
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
+        print("sceneWillResignActive")
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        print("sceneWillEnterForeground")
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        print("sceneDidEnterBackground")
+        
+        // 앱이 Background 상태에 들어갈 때 BGTaskScheduler에 Task를 submit
+        (UIApplication.shared.delegate as? AppDelegate)?.scheduleBackgroundTask()
     }
 
-
+//    private func scheduleBackgroundTask() {
+//        let task = BGAppRefreshTaskRequest(identifier: "NearbyPochak")
+//        /// (Processing Task 였다면)
+//        /*
+//         task.requiresExternalPower = false // 배터리를 사용할 것인지 여부
+//        task.requiresNetworkConnectivity = false // 네트워크를 사용할 것인지 여부
+//         */
+//        
+//        // 백그라운드 작업을 실행할 때까지의 최소 대기 시간
+//        task.earliestBeginDate = Date(timeIntervalSinceNow: 2 * 60)  // 최소 120초
+//        
+//        do {
+//            print("[SceneDelegate] Background Task submitted!")
+//            // Background Task 등록!!
+//            try BGTaskScheduler.shared.submit(task)
+//        } catch {
+//            print("[!] Error - Could not schedule app refresh")
+//        }
+//    }
 }
 
