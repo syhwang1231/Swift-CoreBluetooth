@@ -175,18 +175,14 @@ class ViewController: UIViewController {
     }
 
     @objc func startButtonDidTap(_ sender: UIButton) {
-        print("검색 시작")
-        
         BluetoothSerial.shared.setBluetoothModeAndStart(to: .scanningMode)
     }
     
     @objc func stopButtonDidTap(_ sender: UIButton) {
-        print("검색 종료, advertising mode 시작")
         BluetoothSerial.shared.setBluetoothModeAndStart(to: .advertisingMode)
     }
     
     private func addPeripheral(serial: String) {
-        print("add peripheral")
         lazy var serialLabel: UILabel = {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false

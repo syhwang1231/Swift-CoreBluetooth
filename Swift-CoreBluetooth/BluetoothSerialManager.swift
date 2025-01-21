@@ -72,32 +72,32 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
             currentMode = .scanningMode
             startScan()
         }
-        print("switched mode to.. \(currentMode.rawValue)")
+        print("[BluetoothSerialManager] Switched mode to \(currentMode.rawValue)")
     }
     
-    /// 기기 검색을 시작합니다. 연결이 가능한 모든 주변기기를 serviceUUID를 통해 찾아냅니다.
+    /// 기기 검색 시작, 연결이 가능한 모든 주변기기를 serviceUUID를 통해 검색
     func startScan() {
         if !centralManager.isScanning {
-            print("=== start scan ===")
-            print("state: \(centralManager.state)")
+            print("=== [BluetoothSerialManager] startScan ===")
+            print(">> state: \(centralManager.state)")
             guard centralManager.state == .poweredOn else { return }  // 5: poweredOn
             
             // withService가 nil 이면 모든 종류의 기기 검색 / 입력하면 특정 serviceUUID를 가진 기기만 검색 -> 특정 service만 검색하도록 함
-            print("scanning..")
             let options = [CBCentralManagerScanOptionAllowDuplicatesKey: false]  // 이미 스캔된 정보면 다시 스캔 안 하는 옵션
             centralManager.scanForPeripherals(withServices: [serviceUUID], options: options)
+            print("==========================================")
         }
         else {
             print("![Error] Central manager is already scanning!")
         }
     }
     
-    /// periphalManagerdp service를 추가한 후 advertise 시작하는 메소드
+    /// periphalManager에 service를 추가한 후 advertise 시작하는 메소드
     func startAdvertising() {
         peripheralManager.removeAllServices()
         peripheralManager.add(CBMutableService(type: serviceUUID, primary: true))
         peripheralManager.startAdvertising([
-            CBAdvertisementDataLocalNameKey : "su.yeonn_",
+            CBAdvertisementDataLocalNameKey : "su.yeonn_",  // TODO: 추후 사용자 아이디로 변경
             CBAdvertisementDataServiceUUIDsKey: [self.serviceUUID]
         ])
     }
@@ -132,7 +132,7 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
         print(">> uuid: \(peripheral.identifier.uuidString)")
         print(">> advertisementData, local name: \(advertisementData[CBAdvertisementDataLocalNameKey])")
         print(">> advertisementData, service uuid: \(advertisementData[CBAdvertisementDataServiceUUIDsKey])")
-        print(">> advertisementData, service data: \(advertisementData[CBAdvertisementDataServiceDataKey])")
+        print("===============================================")
         delegate?.serialDidDiscoverPeripheral(peripheral: peripheral, RSSI: RSSI)
     }
 }
